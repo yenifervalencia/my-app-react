@@ -8,7 +8,7 @@ export const Spinner = () => {
                     border-t-[#900090] rounded-full animate-spin"
                 />
             </div>
-            <div className='font-bold'>Cargando....</div>
+            <div className='font-bold'>Loading....</div>
         </div>
     )
 }

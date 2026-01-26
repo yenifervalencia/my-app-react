@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Backgroup } from '../components/Backgroup'
 import { Input } from '../components/Input'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { Spinner } from '../components/Spinner';
+import { IsValidEmail, IsValidOtp } from '../utils/FormValidations';
 
 
 export const ForgotPassword = () => {
@@ -20,21 +21,16 @@ export const ForgotPassword = () => {
     { name: 'Email', id: 1, enabled: true, validate: true },
     { name: 'OTP', id: 2, enabled: false, validate: false },
     { name: 'New Password', id: 3, enabled: false, validate: false },
-  ])
-  const isValidEmail = (email) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  const isValidOtp = (otp) =>
-    /^\d{6}$/.test(otp);
+  ])  
 
   const validateStep = () => {
     const newErrors = {};
 
-    if (step === 0 && !isValidEmail(email)) {
+    if (step === 0 && !IsValidEmail(email)) {
       newErrors.email = "Correo inválido";
     }
 
-    if (step === 1 && !isValidOtp(otp)) {
+    if (step === 1 && !IsValidOtp(otp)) {
       newErrors.otp = "El OTP debe tener 6 dígitos";
     }
 
@@ -226,7 +222,11 @@ export const ForgotPassword = () => {
                 <button onClick={changePassword} disabled={!password && !newPassword} className='text-white gradient-color font-bold w-full rounded-[20px] p-2'>Change Password</button>
               </div>
           }
-
+          <div className='mt-8'>
+            <ul>
+              <li className='text-[#808080] text-[11px] font-bold'><NavLink to="/login">Return to Login</NavLink></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
