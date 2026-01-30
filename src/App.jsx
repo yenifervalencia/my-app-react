@@ -2,14 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import { Login } from './pages/login'
 import { RouterApp } from './routing/RouterApp'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
- 
-  return (
-    <div className='h-full w-full'>
-      <RouterApp></RouterApp>
 
-    </div>
+  return (
+    <BrowserRouter>
+      <RouterApp></RouterApp>
+    </BrowserRouter>
   )
 }
 
