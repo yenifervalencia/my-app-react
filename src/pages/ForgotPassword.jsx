@@ -176,11 +176,10 @@ export const ForgotPassword = () => {
 
   return (
 
-    <div className="w-full min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
+    <div className="w-full min-h-screen grid grid-cols-1 bg-white">
       {loading && (
         <Spinner></Spinner>
       )}
-      <Backgroup></Backgroup>
       <div className='w-full flex flex-col justify-center items-center p-5 gap-4'>
         <h1 className='font-bold text-3xl mb-5'>Reset Password</h1>
         <div className='grid grid-cols-3 gap-2'>

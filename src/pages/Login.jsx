@@ -46,7 +46,8 @@ export const Login = () => {
             }
             let data = await loginSend.json();
             if (data) {
-                alert('Inicio correctamente')
+                alert('Inicio correctamente');
+                localStorage.setItem('token', data.token)
                 setLoading(false)
             }
         } catch (error) {
@@ -59,8 +60,7 @@ export const Login = () => {
     return (
         <>
 
-            <div className="w-full min-h-screen grid grid-cols-1 md:grid-cols-2 bg-white">
-                <Backgroup></Backgroup>
+            <div className="w-full min-h-screen grid grid-cols-1 bg-white">
                 {loading && (
                     <Spinner></Spinner>
                 )}
